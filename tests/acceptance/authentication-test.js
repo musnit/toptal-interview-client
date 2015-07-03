@@ -61,29 +61,24 @@ test("the current user is set in the session", function(assert) {
 test('test failed login', function(assert) {
   visit('/login');
   andThen(function() {
-    fillIn('#identification', 'example@mail.com');
+    fillIn('#email', 'example@mail.com');
     fillIn('#password', 'an invalid password');
     click('#submit');
-    andThen(function() {
-      assert.equal(currentRouteName(), 'login');
-    });
+  });
+
+  andThen(function() {
+    assert.equal(currentRouteName(), 'login');
   });
 });
 
-test('successful login from secret route & logout', function(assert) {
+test('successful login redirects to secret route', function(assert) {
   visit('/login');
   andThen(function() {
-    fillIn('#identification', 'example@mail.com');
+    fillIn('#email', 'example@mail.com');
     fillIn('#password', 'validpassword');
     click('#submit');
-    andThen(function() {
-      assert.equal(currentRouteName(), 'secret');
-
-      assert.equal(find('button').text(), 'Logout', 'logout button available');
-      click('button');
-      andThen(function() {
-        assert.equal(currentRouteName(), 'login');
-      });
-    });
+  });
+  andThen(function() {
+    assert.equal(currentRouteName(), 'secret');
   });
 });
