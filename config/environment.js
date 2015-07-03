@@ -6,6 +6,19 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    serverNamespace: '',
+    contentSecurityPolicy: {
+      'connect-src': "'self' http://localhost:3000 https://toptaltripplanner.herokuapp.com/",
+    },
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:devise',
+      crossOriginWhitelist: ['http://localhost:3000','https://toptaltripplanner.herokuapp.com/'],
+      store: 'simple-auth-session-store:local-storage',
+      routeAfterAuthentication: 'secret'
+    },
+    'simple-auth-devise': {
+      identificationAttributeName: 'email'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -25,12 +38,15 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['simple-auth-devise'].serverTokenEndpoint = 'http://localhost:3000/users/sign_in';
+    ENV.serverHost= 'http://localhost:3000';
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
     ENV.locationType = 'none';
+    ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -40,7 +56,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['simple-auth-devise'].serverTokenEndpoint = 'https://toptaltripplanner.herokuapp.com/users/sign_in';
+    ENV.serverHost= 'https://toptaltripplanner.herokuapp.com';
   }
 
   return ENV;
