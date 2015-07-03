@@ -1,6 +1,4 @@
 import Ember from 'ember';
-import User from 'toptal-trip-planner-client/models/user';
-import ENV from 'toptal-trip-planner-client/config/environment';
 
 export default Ember.Controller.extend({
   actions: {
@@ -11,11 +9,11 @@ export default Ember.Controller.extend({
         email: this.get('email'),
         password: this.get('password'),
       });
-      user.save().then(function(user){
+      user.save().then(function(){
         var data = {
           identification: controller.get('email'),
           password: controller.get('password')
-        }
+        };
         controller.get('session').authenticate('simple-auth-authenticator:devise', data);
       }, function(response){
         controller.set('errorMessage', response.message);

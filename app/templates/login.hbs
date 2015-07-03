@@ -5,3 +5,6 @@
   {{input id="password" value=password placeholder='Enter Password' type='password'}}
   <button id="submit" type="submit">Login</button>
 </form>
+{{#if errorMessage}}
+Error: {{errorMessage}}
+{{/if}}
