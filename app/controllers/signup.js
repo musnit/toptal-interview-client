@@ -10,13 +10,13 @@ export default Ember.Controller.extend({
       var user = this.get('store').createRecord('user', {
         email: this.get('email'),
         password: this.get('password'),
-        password_confirmation: this.get('password')
       });
       user.save().then(function(user){
-        controller.get('session').authenticate('simple-auth-authenticator:devise', {
-          identification: user.get('username'),
+        var data = {
+          identification: controller.get('email'),
           password: controller.get('password')
-        });
+        }
+        controller.get('session').authenticate('simple-auth-authenticator:devise', data);
       }, function(response){
         controller.set('errorMessage', response.message);
       });
