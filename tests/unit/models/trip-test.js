@@ -2,7 +2,7 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('trip', 'Unit | Model | trip', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['user']
 });
 
 test('it exists', function(assert) {

@@ -1,12 +1,36 @@
-<div id='menu'>
-  {{#link-to 'index'}}index{{/link-to}}
-  {{#if session.isAuthenticated}}
-    {{#link-to 'secret'}}see secret{{/link-to}}
-    <button id='logout' {{ action 'invalidateSession' }}>Logout</button>
-  {{else}}
-    {{#link-to 'secret'}}try secret{{/link-to}}
-    {{#link-to 'login'}}Login{{/link-to}}
-    {{#link-to 'signup'}}Signup{{/link-to}}
-  {{/if}}
-</div>
-{{outlet}}
+<section id='header'>
+  <header>
+  {{#link-to 'index'}}
+    <h1>trip planner</h1>
+  {{/link-to}}
+  </header>
+  <nav id='nav'>
+    <ul>
+      <li>{{#link-to 'index'}}Welcome{{/link-to}}</li>
+      {{#if session.isAuthenticated}}
+        <li>{{#link-to 'trips'}}My Trips{{/link-to}}</li>
+        <li>{{#link-to 'new_trip'}}Create New Trip{{/link-to}}</li>
+      {{/if}}
+    </ul>
+  </nav>
+  <nav id='bottom-nav'>
+    <ul>
+      <li>
+        {{#if session.isAuthenticated}}
+          <a href='#' {{ action 'invalidateSession' }}>Logout</a>
+        {{else}}
+          {{#link-to 'signup'}}Signup{{/link-to}}
+          {{#link-to 'login'}}Login{{/link-to}}
+        {{/if}}
+      </li>
+    </ul>
+  </nav>
+  <footer>
+    <ul class='icons'>
+      <li>{{fa-icon "envelope"}}<a href='mailto:musnit@gmail.com'><span class='label'> Email us!</span></a></li>
+    </ul>
+  </footer>
+</section>
+<section id='wrapper' class="container">
+  {{outlet}}
+</section>

@@ -1,0 +1,13 @@
+<ul class='trip-list'>
+  {{#each model key='id' as |trip|}}
+      {{#link-to 'trip' trip}}
+        <li class='trip'>
+          <strong>{{trip.destination}}</strong><br/>
+          Starting Date: {{trip.startDate}}<br/>
+          Ending Date: {{trip.endDate}}<br/>
+          Comment: {{trip.comment}}<br/>
+        </li>
+      {{/link-to}}
+  {{/each}}
+</ul>
+{{#link-to 'new_trip'}}Create New Trip{{/link-to}}

@@ -20,42 +20,18 @@ module('Acceptance | authentication', {
           return [401];
         }
       });
+      this.get('/trips', function(request) {
+        var rb = request.requestBody;
+        var payload = {trips: []};
+        return [200, {'Content-Type': 'application/json'},
+                JSON.stringify(payload)];
+      });
     });
   },
 
   afterEach: function() {
     Ember.run(application, 'destroy');
   }
-});
-
-test('secret route is accessible when the session is authenticated', function(assert) {
-  authenticateSession();
-  visit('/secret');
-
-  andThen(function() {
-    assert.equal(currentRouteName(), 'secret');
-  });
-});
-
-test('secret route is not accessible when the session is not authenticated', function(assert) {
-  invalidateSession();
-  visit('/secret');
-
-  andThen(function() {
-    assert.notEqual(currentRouteName(), 'secret');
-  });
-});
-
-test("the current user is set in the session", function(assert) {
-  assert.expect(1);
-  authenticateSession();
-  currentSession().set('currentUser', 'aidan');
-  visit('/secret');
-
-  andThen(function() {
-    var user = currentSession().get('currentUser');
-    assert.equal(user, 'aidan');
-  });
 });
 
 test('test failed login', function(assert) {
@@ -71,7 +47,7 @@ test('test failed login', function(assert) {
   });
 });
 
-test('successful login redirects to secret route', function(assert) {
+test('successful login redirects to trips route', function(assert) {
   visit('/login');
   andThen(function() {
     fillIn('#email', 'example@mail.com');
@@ -79,6 +55,6 @@ test('successful login redirects to secret route', function(assert) {
     click('#submit');
   });
   andThen(function() {
-    assert.equal(currentRouteName(), 'secret');
+    assert.equal(currentRouteName(), 'trips');
   });
 });
