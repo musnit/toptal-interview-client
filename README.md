@@ -1,4 +1,4 @@
-# Toptal-trip-planner-client
+# Toptal-trip-planner-client [![Build Status](https://travis-ci.org/musnit/toptal-interview-client.svg?branch=master)](https://travis-ci.org/musnit/toptal-interview-client)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -51,4 +51,3 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
-Yay!
