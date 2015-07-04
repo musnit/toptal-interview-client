@@ -1,9 +1,1 @@
 <h2 id="title">Welcome to trip planner</h2>
-{{#if session.isAuthenticated}}
-  {{#link-to 'secret'}}see secret{{/link-to}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
-{{else}}
-  {{#link-to 'secret'}}try secret{{/link-to}}
-  {{#link-to 'login'}}Login{{/link-to}}
-  {{#link-to 'signup'}}Signup{{/link-to}}
-{{/if}}
