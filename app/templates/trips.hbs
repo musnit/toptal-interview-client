@@ -10,18 +10,18 @@ Ends before: {{pikaday-input format="MM/DD/YYYY" value=endBeforeFilter}}
 </div>
 <ul class='trip-list'>
   {{#each allFilteredTrips key='id' as |trip|}}
-      {{#link-to 'trip' trip}}
-        <li class='trip'>
-          <strong>{{trip.destination}}</strong><br/>
-          Starting Date: {{#if trip.startDate}}{{moment trip.startDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
-          Ending Date: {{#if trip.endDate}}{{moment trip.endDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
-          {{#if trip.tripIsInFuture}}
-            Starts in {{ago trip.startDate}}!!<br/>
-          {{/if}}
-          Comment: {{trip.comment}}<br/>
-          <button class='delete-trip-button' {{action 'deleteTrip' trip}}>Delete this trip</button>
-        </li>
-      {{/link-to}}
+    {{#link-to 'trip' trip}}
+      <li class='trip'>
+        <strong>{{trip.destination}}</strong><br/>
+        Starting Date: {{#if trip.startDate}}{{moment trip.startDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
+        Ending Date: {{#if trip.endDate}}{{moment trip.endDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
+        {{#if trip.tripIsInFuture}}
+          Starts in {{ago trip.startDate}}!!<br/>
+        {{/if}}
+        Comment: {{trip.comment}}<br/>
+        <button class='delete-trip-button' {{action 'deleteTrip' trip}}>Delete this trip</button>
+      </li>
+    {{/link-to}}
   {{/each}}
 </ul>
 {{#link-to 'new_trip'}}Create New Trip{{/link-to}}

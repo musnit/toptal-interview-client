@@ -8,9 +8,10 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('signup');
-  this.resource('trips', { path: '/trips' });
-  this.resource('new_trip', { path: '/trips/new' });
-  this.resource('trip', { path: '/trips/:trip_id' });
+  this.route('trips', { path: '/trips' });
+  this.route('new_trip', { path: '/trips/new' });
+  this.route('trip', { path: '/trips/:trip_id' });
+  this.route('travel_plan');
 });
 
 export default Router;

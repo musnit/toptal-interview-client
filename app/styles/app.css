@@ -24,8 +24,11 @@ html, body {
   border-radius: 5px;
   border: solid 3px black;
   display: block;
-  text-decoration: none;
   margin-bottom: 10px;
   overflow-x: hidden;
   text-overflow: ellipsis;
+}
+
+.trip-list > a {
+  text-decoration: none;
 }

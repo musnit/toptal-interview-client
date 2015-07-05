@@ -1,0 +1,10 @@
+This is your travel plan for the next month: <button {{action 'print'}}>Print this page</button>
+
+{{#each tripsInTheNextMonth key='id' as |trip|}}
+  <li class='plan-trip'>
+    <strong>{{trip.destination}}</strong><br/>
+    Starting Date: {{moment trip.startDate 'dddd, MMMM Do YYYY'}}<br/>
+    Ending Date: {{moment trip.endDate 'dddd, MMMM Do YYYY'}}<br/>
+    Comment: {{trip.comment}}<br/>
+  </li>
+{{/each}}
