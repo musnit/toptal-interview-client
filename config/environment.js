@@ -9,6 +9,7 @@ module.exports = function(environment) {
     serverNamespace: '',
     contentSecurityPolicy: {
       'connect-src': "'self' http://localhost:3000 https://toptaltripplanner.herokuapp.com/",
+      'img-src': "'self' data:",
     },
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise',

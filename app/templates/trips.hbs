@@ -1,5 +1,15 @@
+<div class='filters'>
+Fliter by: <br/>
+Destination: {{view 'select'
+            content=uniqueDestinations
+            value=destinationFilter
+            prompt="No filter"}}
+Starts after: {{pikaday-input format="MM/DD/YYYY" value=startAfterFilter}}
+Ends before: {{pikaday-input format="MM/DD/YYYY" value=endBeforeFilter}}
+<button {{action 'clearFilters'}}>Clear filters</button>
+</div>
 <ul class='trip-list'>
-  {{#each model key='id' as |trip|}}
+  {{#each allFilteredTrips key='id' as |trip|}}
       {{#link-to 'trip' trip}}
         <li class='trip'>
           <strong>{{trip.destination}}</strong><br/>
