@@ -19,7 +19,22 @@ module('Acceptance | New Trip Page', {
   }
 });
 
-test('creating a trip with a filled in name should create that trip', function(assert) {
+test("clicking create trip with a filled in name should redirect to that trip's page", function(assert) {
+  TestHelper.handleCreate('trip');
+  authenticateSession();
+  visit('/trips/new');
+  andThen(function() {
+    fillIn('#destination-input', 'MyDestination');
+  });
+  andThen(function() {
+    click('.create-trip-button');
+  });
+  andThen(function() {
+    assert.equal(currentRouteName(), 'trips/1');
+  });
+});
+
+test('clicking create trip a trip with a filled in name should create that trip', function(assert) {
   TestHelper.handleCreate('trip');
   authenticateSession();
   visit('/trips/new');

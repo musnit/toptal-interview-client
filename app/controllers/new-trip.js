@@ -5,13 +5,20 @@ export default Ember.Controller.extend({
   actions: {
     createTrip: function(newTrip){
       var controller = this;
-      var trip = this.get('store').createRecord('trip', newTrip);
-      trip.save().then(function(result){
-        console.log(result);
-        //self.transitionTo('')
-      }, function(response){
-        controller.set('errorMessage', response.message);
-      });
+      if(newTrip.destination === '' || newTrip.destination === undefined ){
+        controller.set('errorMessage', "Hey your destination can't be blank!");
+        return;
+      }
+      else{
+        var trip = this.get('store').createRecord('trip', newTrip);
+        trip.save().then(function(result){
+          console.log(result);
+          //self.transitionTo('')
+        }, function(response){
+          //trip.deleteRecord();
+          controller.set('errorMessage', response.message);
+        });
+      }
     }
   }
 });

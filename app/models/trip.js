@@ -5,5 +5,16 @@ export default DS.Model.extend({
   comment: DS.attr('string'),
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
-  user: DS.belongsTo('user')
+  user: DS.belongsTo('user'),
+  tripIsInFuture: function(){
+    return true;
+  }.property('startDate'),
+  daysUntilStart: function(){
+    if(!this.get('tripIsInFuture')){
+      return null;
+    }
+    else{
+      return 12;
+    }
+  }.property('startDate', 'tripIsInFuture')
 });

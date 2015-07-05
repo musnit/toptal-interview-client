@@ -39,6 +39,7 @@
     "ember-data-factory-guy": "1.13.1",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
+    "ember-pikaday": "0.8.0",
     "jquery-mockjax": "^2.0.1"
   }
 }
