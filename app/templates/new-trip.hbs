@@ -1,7 +1,7 @@
 New trip yay
 Trip Destination: {{input id='destination-input' type="text" value=newTrip.destination placeholder="Enter your trip's destination"}}
-Starting date: {{pikaday-input format="MM/DD/YYYY" value=newTrip.startDate placeholder="Pick a start date!"}}
-Ending date: {{pikaday-input format="MM/DD/YYYY" value=newTrip.endDate placeholder="Pick an end date!"}}
+Starting date: {{pikaday-input id='start-datepicker' format="MM/DD/YYYY" value=newTrip.startDate placeholder="Pick a start date!"}}
+Ending date: {{pikaday-input id='end-datepicker' format="MM/DD/YYYY" value=newTrip.endDate placeholder="Pick an end date!"}}
 Comment: {{input type="text" value=newTrip.comment placeholder="Enter a comment for the trip"}}
 <button class='create-trip-button' {{action 'createTrip' newTrip}}>Create it!</button>
 {{#if errorMessage}}
