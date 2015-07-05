@@ -3,8 +3,8 @@
       {{#link-to 'trip' trip}}
         <li class='trip'>
           <strong>{{trip.destination}}</strong><br/>
-          Starting Date: {{moment trip.startDate 'dddd, MMMM Do YYYY'}}<br/>
-          Ending Date: {{moment trip.endDate 'dddd, MMMM Do YYYY'}}<br/>
+          Starting Date: {{#if trip.startDate}}{{moment trip.startDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
+          Ending Date: {{#if trip.endDate}}{{moment trip.endDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
           {{#if trip.tripIsInFuture}}
             Starts in {{ago trip.startDate}}!!<br/>
           {{/if}}
