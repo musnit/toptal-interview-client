@@ -1,6 +1,9 @@
 <p>{{#link-to 'trips'}}Back to all trips{{/link-to}}</p>
 <strong id='destination'>{{model.destination}}</strong><br/>
-Starting Date: {{model.startDate}}<br/>
-Ending Date: {{model.endDate}}<br/>
+Starting Date: {{moment model.startDate 'dddd, MMMM Do YYYY'}}<br/>
+Ending Date: {{moment model.endDate 'dddd, MMMM Do YYYY'}}<br/>
+{{#if model.tripIsInFuture}}
+  Starts in {{ago model.startDate}}!!<br/>
+{{/if}}
 Comment: {{model.comment}}<br/>
 <button class='delete-trip-button' {{action 'deleteTrip' model}}>Delete this trip</button>

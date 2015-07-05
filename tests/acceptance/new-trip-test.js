@@ -30,7 +30,7 @@ test("clicking create trip with a filled in name should redirect to that trip's 
     click('.create-trip-button');
   });
   andThen(function() {
-    assert.equal(currentRouteName(), 'trips/1');
+    assert.equal(currentRouteName(), 'trip');
   });
 });
 

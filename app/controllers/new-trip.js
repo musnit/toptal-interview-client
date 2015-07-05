@@ -12,8 +12,7 @@ export default Ember.Controller.extend({
       else{
         var trip = this.get('store').createRecord('trip', newTrip);
         trip.save().then(function(result){
-          console.log(result);
-          //self.transitionTo('')
+          controller.transitionToRoute('trip', result.get('id'));
         }, function(response){
           //trip.deleteRecord();
           controller.set('errorMessage', response.message);

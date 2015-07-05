@@ -6,11 +6,14 @@ moduleForModel('trip', 'Unit | Model | trip', {
   // Specify the other units that are required for this test.
   needs: ['model:user'],
   beforeEach: function() {
-
+    this.OriginalDateNow = Date.now;
+    Date.now = function(){
+      return new Date('July 15 2014');
+    };
   },
 
   afterEach: function() {
-
+    Date.now = this.OriginalDateNow;
   }
 });
 
@@ -25,37 +28,17 @@ test('tripIsInFuture is true if trip is in future', function(assert) {
   var trip;
   Ember.run(function(){
     trip = self.store().createRecord('trip',{});
-    trip.set('startDate', '22 July');
+    trip.set('startDate', new Date('17 July 2014'));
   });
   assert.equal(trip.get('tripIsInFuture'), true);
 });
 
-test('tripIsInFuture is false if trip is in future', function(assert) {
+test('tripIsInFuture is false if trip is in past', function(assert) {
   var self = this;
   var trip;
   Ember.run(function(){
     trip = self.store().createRecord('trip',{});
-    trip.set('startDate', '5 July');
+    trip.set('startDate', new Date('15 July 2014'));
   });
   assert.equal(trip.get('tripIsInFuture'), false);
-});
-
-test('days until start is correct if trip is in future', function(assert) {
-  var self = this;
-  var trip;
-  Ember.run(function(){
-    trip = self.store().createRecord('trip',{});
-    trip.set('startDate', '22 July');
-  });
-  assert.equal(trip.get('daysUntilStart'), 12);
-});
-
-test('days until start is null if trip is in past', function(assert) {
-  var self = this;
-  var trip;
-  Ember.run(function(){
-    trip = self.store().createRecord('trip',{});
-    trip.set('startDate', '5 July');
-  });
-  assert.equal(trip.get('daysUntilStart'), null);
 });

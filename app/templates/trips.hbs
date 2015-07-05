@@ -3,8 +3,11 @@
       {{#link-to 'trip' trip}}
         <li class='trip'>
           <strong>{{trip.destination}}</strong><br/>
-          Starting Date: {{trip.startDate}}<br/>
-          Ending Date: {{trip.endDate}}<br/>
+          Starting Date: {{moment trip.startDate 'dddd, MMMM Do YYYY'}}<br/>
+          Ending Date: {{moment trip.endDate 'dddd, MMMM Do YYYY'}}<br/>
+          {{#if trip.tripIsInFuture}}
+            Starts in {{ago trip.startDate}}!!<br/>
+          {{/if}}
           Comment: {{trip.comment}}<br/>
           <button class='delete-trip-button' {{action 'deleteTrip' trip}}>Delete this trip</button>
         </li>

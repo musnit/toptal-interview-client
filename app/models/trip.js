@@ -7,14 +7,6 @@ export default DS.Model.extend({
   endDate: DS.attr('date'),
   user: DS.belongsTo('user'),
   tripIsInFuture: function(){
-    return true;
+    return this.get('startDate') > Date.now();
   }.property('startDate'),
-  daysUntilStart: function(){
-    if(!this.get('tripIsInFuture')){
-      return null;
-    }
-    else{
-      return 12;
-    }
-  }.property('startDate', 'tripIsInFuture')
 });
