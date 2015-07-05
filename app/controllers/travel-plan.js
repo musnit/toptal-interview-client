@@ -4,7 +4,6 @@ export default Ember.Controller.extend({
   sortProperties: ['startDate'],
   sortAscending: true,
   tripsInTheNextMonth: function(){
-    var controller = this;
     var now = Date.now();
     var nextMonth = new Date();
     nextMonth.setDate(nextMonth.getDate() + 30);
