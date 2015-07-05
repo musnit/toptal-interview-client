@@ -9,6 +9,10 @@ export default Ember.Controller.extend({
         controller.set('errorMessage', "Hey your destination can't be blank!");
         return;
       }
+      if(newTrip.startDate > newTrip.endDate){
+        controller.set('errorMessage', "Hey your start date has to be after your end date!");
+        return;
+      }
       else{
         var trip = this.get('store').createRecord('trip', newTrip);
         trip.save().then(function(result){

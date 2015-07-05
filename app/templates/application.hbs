@@ -1,15 +1,22 @@
 <section id='header'>
   <header>
-  {{#link-to 'index'}}
-    <h1>trip planner</h1>
-  {{/link-to}}
+  {{#if session.isAuthenticated}}
+    {{#link-to 'trips'}}
+      <h1>trip planner</h1>
+    {{/link-to}}
+  {{else}}
+    {{#link-to 'index'}}
+      <h1>trip planner</h1>
+    {{/link-to}}
+  {{/if}}
   </header>
   <nav id='nav'>
     <ul>
-      <li>{{#link-to 'index'}}Welcome{{/link-to}}</li>
       {{#if session.isAuthenticated}}
         <li>{{#link-to 'trips'}}My Trips{{/link-to}}</li>
         <li>{{#link-to 'new_trip'}}Create New Trip{{/link-to}}</li>
+      {{else}}
+        <li>{{#link-to 'index'}}Welcome{{/link-to}}</li>
       {{/if}}
     </ul>
   </nav>
