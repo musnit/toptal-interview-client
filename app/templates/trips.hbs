@@ -6,6 +6,7 @@
           Starting Date: {{trip.startDate}}<br/>
           Ending Date: {{trip.endDate}}<br/>
           Comment: {{trip.comment}}<br/>
+          <button class='delete-trip-button' {{action 'deleteTrip' trip}}>Delete this trip</button>
         </li>
       {{/link-to}}
   {{/each}}

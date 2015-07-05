@@ -7,7 +7,7 @@ import FactoryGuy from 'ember-data-factory-guy';
 
 var application, server;
 
-module('Acceptance | authentication', {
+module('Acceptance | Trip Page', {
   beforeEach: function() {
     application = startApp();
     var trips = FactoryGuy.makeList('trip', 2);
@@ -47,3 +47,37 @@ test('trip destination should be shown on the page', function(assert) {
   });
 });
 
+test('trips should have a delete button to remove them', function(assert) {
+  authenticateSession();
+  visit('/trips/1');
+  andThen(function() {
+    assert.ok(find('.delete-trip-button'));
+  });
+});
+
+test('deleting a trip should redirect to the trips page', function(assert) {
+  assert.expect(1);
+  TestHelper.handleDelete('trip', 1);
+  authenticateSession();
+  visit('/trips/1');
+  andThen(function() {
+    click('.delete-trip-button:first');
+  });
+  andThen(function() {
+    assert.equal(currentRouteName(), 'trips');
+  });
+});
+
+test('clicking on a delete button should delete that trip', function(assert) {
+  assert.expect(2);
+  TestHelper.handleDelete('trip', 1);
+  authenticateSession();
+  visit('/trips/1');
+  andThen(function() {
+    click('.delete-trip-button:first');
+  });
+  andThen(function() {
+    assert.equal($.mockjax.mockedAjaxCalls().length, 2);
+    assert.equal(find('.delete-trip-button').length, 1);
+  });
+});

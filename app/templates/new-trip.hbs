@@ -1,9 +1,9 @@
 New trip yay
-Trip Destination: {{input type="text" value=newTrip.destination placeholder="Enter your trip's destination"}}
+Trip Destination: {{input id='destination-input' type="text" value=newTrip.destination placeholder="Enter your trip's destination"}}
 Starting date: {{input type="text" value=newTrip.startDate placeholder="Pick a start date!"}}
 Ending date: {{input type="text" value=newTrip.endDate placeholder="Pick an end date!"}}
 Comment: {{input type="text" value=newTrip.comment placeholder="Enter a comment for the trip"}}
-<button {{action 'createTrip' newTrip}}>Create it!</button>
+<button class='create-trip-button' {{action 'createTrip' newTrip}}>Create it!</button>
 {{#if errorMessage}}
 Error: {{errorMessage}}
 {{/if}}
