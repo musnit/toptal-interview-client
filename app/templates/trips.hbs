@@ -45,11 +45,16 @@
             Comment: {{trip.comment}}<br/>
           </div>
           <div class="col-md-4 trip-actions">
-            <button class='delete-trip-button btn btn-danger' {{action 'deleteTrip' trip}}>Delete this trip</button>
+            <p>
+              <button class='delete-trip-button btn btn-danger' {{action 'deleteTrip' trip}}>Delete this trip</button><br/>
+            </p>
+            <p>
+              {{#link-to 'edit_trip' trip class='btn btn-default'}}Edit this trip{{/link-to}}
+            </p>
           </div>
         </div>
       </li>
     {{/link-to}}
   {{/each}}
 </ul>
-{{#link-to 'new_trip' class='delete-trip-button btn btn-success'}}Create New Trip{{/link-to}}
+{{#link-to 'new_trip' class='create-trip-button btn btn-success'}}Create New Trip{{/link-to}}
