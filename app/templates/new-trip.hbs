@@ -1,9 +1,25 @@
-New trip yay
-Trip Destination: {{input id='destination-input' type="text" value=newTrip.destination placeholder="Enter your trip's destination"}}
-Starting date: {{pikaday-input id='start-datepicker' format="MM/DD/YYYY" value=newTrip.startDate placeholder="Pick a start date!"}}
-Ending date: {{pikaday-input id='end-datepicker' format="MM/DD/YYYY" value=newTrip.endDate placeholder="Pick an end date!"}}
-Comment: {{input type="text" value=newTrip.comment placeholder="Enter a comment for the trip"}}
-<button class='create-trip-button' {{action 'createTrip' newTrip}}>Create it!</button>
+<h3>New trip yay</h3>
+<div class='input-form'>
+  <div class="form-group ">
+    <label for="newTrip.destination">Trip Destination</label>
+    {{input class="form-control" id='destination-input' type="text" value=newTrip.destination placeholder="Enter your trip's destination"}}
+  </div>
+  <div class="form-group">
+    <label for="newTrip.startDate">Starting date</label>
+    {{pikaday-input class="form-control" id='start-datepicker' format="MM/DD/YYYY" value=newTrip.startDate placeholder="Pick a start date!"}}
+  </div>
+  <div class="form-group">
+    <label for="newTrip.endDate">Ending date</label>
+    {{pikaday-input class="form-control" id='end-datepicker' format="MM/DD/YYYY" value=newTrip.endDate placeholder="Pick an end date!"}}
+  </div>
+  <div class="form-group">
+    <label for="newTrip.comment">Comment</label>
+    {{textarea class="form-control" value=newTrip.comment placeholder="Enter a comment for the trip"}}
+  </div>
+  <button class='create-trip-button btn btn-success' {{action 'createTrip' newTrip}}>Create it!</button>
+</div>
 {{#if errorMessage}}
-Error: {{errorMessage}}
+  <div class="alert alert-warning alert-dismissible fade in">
+    Error: {{errorMessage}}
+  </div>
 {{/if}}

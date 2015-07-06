@@ -1,5 +1,20 @@
 html, body {
-  margin: 0px;
+    height: 100%;
+    margin: 0;
+}
+#right {
+    width: 84%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 50px;
+    background-color: #E5FFF9;
+}
+
+.page-content {
+  padding-left: 50px;
+  padding-top: 50px;
 }
 
 .comment-button {
@@ -19,6 +34,10 @@ html, body {
   padding: 0.1em 0.75em;
 }
 
+.filters {
+  margin-bottom: 20px
+}
+
 .trip-list > a > li {
   padding-left: 1em;
   border-radius: 5px;
@@ -31,4 +50,132 @@ html, body {
 
 .trip-list > a {
   text-decoration: none;
+}
+
+.trip {
+  max-width: 900px;
+  padding-bottom: 10px;
+}
+
+.trip:hover {
+  background-color: #A9F5E3;
+}
+
+.trip-actions{
+  padding-top: 15px;
+}
+
+.bottom-nav {
+  margin-top: 100px;
+}
+
+.input-form {
+  padding-bottom: 20px;
+}
+
+#left a {
+  text-decoration: none;
+}
+
+
+#left {
+  background: #B9AFFF;
+  color: #FFFFFF;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  width: 16%;
+  font-size: 19px;
+}
+
+#left h1, #left h2, #left h3, #left h4, #left h5, #left h6 {
+  color: #E5FFF9;
+}
+
+#left h1 a, #left h2 a, #left h3 a, #left h4 a, #left h5 a, #left h6 a {
+  color: #E5FFF9;
+}
+
+#left header p {
+  color: #b6e9dc;
+}
+
+#left a {
+  color: #d1f1e9;
+}
+
+#left a:hover {
+  color: #ffffff !important;
+}
+
+#left > header {
+  padding: 3em;
+}
+
+#left > header .avatar {
+  display: block;
+  margin: 0 auto 2.25em auto;
+  width: 8em;
+}
+
+#left > header h1 {
+  font-size: 1.75em;
+  margin: 0;
+}
+
+#left > header p {
+  color: #d1f1e9;
+  font-style: italic;
+  margin: 1em 0 0 0;
+}
+
+#left > footer {
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  position: absolute;
+  width: 100%;
+}
+
+#left > footer .icons {
+  margin: 0;
+}
+
+#left > footer .icons li a {
+  color: #b6e9dc;
+}
+
+#left > nav ul
+{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#left > nav ul li {
+  display: block;
+  padding: 0;
+}
+
+#left > nav ul li a {
+  -moz-transition: none;
+  -webkit-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+  border: 0;
+  color: #E5FFF9 !important;
+  display: block;
+  padding: 0.85em 0;
+  text-decoration: none;
+}
+
+#left > nav ul li a.active {
+  background: #E5FFF9;
+  color: #A297F3 !important;
+}
+
+#left > nav ul li:first-child,
+#left > bottom-nav ul li:first-child {
+  border-top: 0;
 }

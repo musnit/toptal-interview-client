@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('trips', { path: '/trips' });
   this.route('new_trip', { path: '/trips/new' });
   this.route('trip', { path: '/trips/:trip_id' });
+  this.route('edit_trip', { path: '/trips/edit/:trip_id' });
   this.route('travel_plan');
 });
 

@@ -1,0 +1,34 @@
+<section id='left'>
+  <header id='header'>
+  {{#if session.isAuthenticated}}
+    {{#link-to 'trips'}}
+      <h1>Trip Planner</h1>
+    {{/link-to}}
+  {{else}}
+    {{#link-to 'index'}}
+      <h1>Trip Planner</h1>
+    {{/link-to}}
+  {{/if}}
+  </header>
+  <nav class='nav'>
+    <ul>
+      {{#if session.isAuthenticated}}
+        <li>{{#link-to 'trips'}}My Trips{{/link-to}}</li>
+        <li>{{#link-to 'new_trip'}}Create New Trip{{/link-to}}</li>
+        <li>{{#link-to 'travel_plan'}}Travel Plan{{/link-to}}</li>
+      {{else}}
+        <li>{{#link-to 'index'}}Welcome{{/link-to}}</li>
+      {{/if}}
+    </ul>
+  </nav>
+  <nav class='nav bottom-nav'>
+    <ul>
+      {{#if session.isAuthenticated}}
+        <li><a href='#' {{ action 'invalidateSession' }}>Logout</a></li>
+      {{else}}
+        <li>{{#link-to 'signup'}}Signup{{/link-to}}</li>
+        <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+      {{/if}}
+    </ul>
+  </nav>
+</section>

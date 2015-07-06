@@ -3,20 +3,18 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   newTrip: {},
   actions: {
-    createTrip: function(newTrip){
+    saveTrip: function(trip){
       var controller = this;
-      if(newTrip.destination === '' || newTrip.destination === undefined ){
+      if(trip.get('destination') === '' || trip.get('destination') === undefined ){
         controller.set('errorMessage', "Hey your destination can't be blank!");
         return;
       }
-      if(newTrip.startDate > newTrip.endDate){
+      if(trip.get('startDate') > trip.get('endDate')){
         controller.set('errorMessage', "Hey your start date has to be after your end date!");
         return;
       }
       else{
-        var trip = this.get('store').createRecord('trip', newTrip);
         trip.save().then(function(result){
-          controller.set('newTrip', {});
           controller.set('errorMessage', undefined);
           controller.transitionToRoute('trip', result.get('id'));
         }, function(response){
