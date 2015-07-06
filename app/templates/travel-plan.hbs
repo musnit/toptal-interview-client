@@ -1,10 +1,10 @@
-This is your travel plan for the next month: <button {{action 'print'}}>Print this page</button>
+<h3 id='travel-plan-heading'>Travel plan for the next month</h3> <button class='no-print btn btn-default' {{action 'print'}}>Print this page</button>
 
 {{#each tripsInTheNextMonth key='id' as |trip|}}
   <li class='plan-trip'>
-    <strong>{{trip.destination}}</strong><br/>
-    Starting Date: {{moment trip.startDate 'dddd, MMMM Do YYYY'}}<br/>
-    Ending Date: {{moment trip.endDate 'dddd, MMMM Do YYYY'}}<br/>
-    Comment: {{trip.comment}}<br/>
+    <h4><strong>{{trip.destination}}</strong></h4>
+    <strong>Starting Date:</strong> {{moment trip.startDate 'dddd, MMMM Do YYYY'}}<br/>
+    <strong>Ending Date:</strong> {{moment trip.endDate 'dddd, MMMM Do YYYY'}}<br/>
+    <strong>Comment:</strong> {{trip.comment}}<br/>
   </li>
 {{/each}}
