@@ -15,7 +15,8 @@ module.exports = function(environment) {
       authorizer: 'simple-auth-authorizer:devise',
       crossOriginWhitelist: ['http://localhost:3000','https://toptaltripplanner.herokuapp.com/'],
       store: 'simple-auth-session-store:local-storage',
-      routeAfterAuthentication: 'trips'
+      routeAfterAuthentication: 'trips',
+      routeIfAlreadyAuthenticated: 'trips'
     },
     'simple-auth-devise': {
       identificationAttributeName: 'email'

@@ -1,0 +1,12 @@
+<ul class='user-list'>
+  {{#each content key='id' as |user|}}
+    <li>
+      {{user.email}}
+      {{user.actualRole}}
+      {{#if userIsAdmin}}
+        {{#link-to 'user' user}}Manage Trips{{/link-to}}
+      {{/if}}
+      <a href='#' {{ action 'deleteUser' user }}>Delete!</a>
+    </li>
+  {{/each}}
+</ul>

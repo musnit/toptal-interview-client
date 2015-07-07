@@ -23,6 +23,12 @@
   </nav>
   <nav class='nav bottom-nav'>
     <ul>
+      {{#if userIsAdmin}}
+        <li>{{#link-to 'users'}}Manage Users{{/link-to}}</li>
+      {{/if}}
+      {{#if userIsUserManager}}
+        <li>{{#link-to 'users'}}Manage Users{{/link-to}}</li>
+      {{/if}}
       {{#if session.isAuthenticated}}
         <li><a href='#' {{ action 'invalidateSession' }}>Logout</a></li>
       {{else}}

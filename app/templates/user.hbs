@@ -1,0 +1,26 @@
+<h2>Viewing trips for user: {{model.email}}</h2>
+<ul class='trip-list'>
+  {{#each model.trips key='id' as |trip|}}
+    <li class='trip'>
+      <div class="row">
+        <div class="col-md-8">
+          <h4><strong>{{trip.destination}}</strong></h4>
+          Starting Date: {{#if trip.startDate}}{{moment trip.startDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
+          Ending Date: {{#if trip.endDate}}{{moment trip.endDate 'dddd, MMMM Do YYYY'}}{{/if}}<br/>
+          {{#if trip.tripIsInFuture}}
+            <strong>Starts in {{ago trip.startDate}}!!<br/></strong>
+          {{/if}}
+          Comment: {{trip.comment}}<br/>
+        </div>
+        <div class="col-md-4 trip-actions">
+          <p>
+            <button class='delete-trip-button btn btn-danger' {{action 'deleteTrip' trip}}>Delete this trip</button><br/>
+          </p>
+          <p>
+            {{#link-to 'edit_trip' trip class='btn btn-default'}}Edit this trip{{/link-to}}
+          </p>
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>

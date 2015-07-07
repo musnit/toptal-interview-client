@@ -1,9 +1,13 @@
 import DS from 'ember-data';
-import Ember from 'ember';
 
 export default DS.Model.extend({
   email: DS.attr('string'),
-  password: DS.attr('string'),
-  passwordConfirmation: Ember.computed.alias('password'),
-  trips: DS.hasMany('trip')
+  role: DS.attr('string'),
+  trips: DS.hasMany('trip', { async: true } ),
+  actualRole: function(){
+    if (this.get('role')){
+      return this.get('role');
+    }
+    return 'basic';
+  }.property('role')
 });

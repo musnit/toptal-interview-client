@@ -13,6 +13,8 @@ Router.map(function() {
   this.route('trip', { path: '/trips/:trip_id' });
   this.route('edit_trip', { path: '/trips/edit/:trip_id' });
   this.route('travel_plan');
+  this.route('users', { path: '/users' });
+  this.route('user', { path: '/users/:user_id' });
 });
 
 export default Router;
