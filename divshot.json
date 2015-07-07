@@ -1,6 +1,9 @@
 {
   "name": "toptaltripplanner",
   "root": "dist",
-  "clean_urls": true,
-  "error_page": "error.html"
+  "clean_urls": ["/**"],
+  "error_page": "error.html",
+  "routes": {
+    "/*": "index.html"
+  }
 }
