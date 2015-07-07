@@ -3,6 +3,9 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(){
+    if (this.session.content.secure.role === 'admin'){
+      this.store.unloadAll('trip');
+    }
     return this.store.findAll('trip');
   }
 });

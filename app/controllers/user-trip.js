@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
       else{
         trip.save().then(function(result){
           controller.set('errorMessage', undefined);
-          controller.transitionToRoute('trip', result.get('id'));
+          controller.transitionToRoute('user', result.toJSON().user);
         }, function(response){
           controller.set('errorMessage', response.message);
         });

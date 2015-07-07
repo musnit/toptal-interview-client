@@ -1,0 +1,25 @@
+<p>{{#link-to 'user' model.user}}Back to user's trips{{/link-to}}</p>
+<div class='input-form'>
+  <div class="form-group ">
+    <label for="model.destination">Trip Destination</label>
+    {{input class="form-control" id='destination-input' type="text" value=model.destination placeholder="Enter your trip's destination"}}
+  </div>
+  <div class="form-group">
+    <label for="model.startDate">Starting date</label>
+    {{pikaday-input class="form-control" id='start-datepicker' format="MM/DD/YYYY" value=model.startDate placeholder="Pick a start date!"}}
+  </div>
+  <div class="form-group">
+    <label for="model.endDate">Ending date</label>
+    {{pikaday-input class="form-control" id='end-datepicker' format="MM/DD/YYYY" value=model.endDate placeholder="Pick an end date!"}}
+  </div>
+  <div class="form-group">
+    <label for="model.comment">Comment</label>
+    {{textarea class="form-control" value=model.comment placeholder="Enter a comment for the trip"}}
+  </div>
+  <button class='save-trip-button btn btn-default' {{action 'saveTrip' model}}>Save</button>
+</div>
+{{#if errorMessage}}
+  <div class="alert alert-warning alert-dismissible fade in">
+    Error: {{errorMessage}}
+  </div>
+{{/if}}

@@ -4,6 +4,14 @@ html, body {
     margin: 0;
 }
 
+td {
+  vertical-align: middle !important;
+}
+
+.user-table {
+  width: 60%;
+}
+
 #right {
     width: 84%;
     height: 100%;

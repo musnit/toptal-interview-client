@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('travel_plan');
   this.route('users', { path: '/users' });
   this.route('user', { path: '/users/:user_id' });
+  this.route('user_trip', { path: '/user_trip/:trip_id' });
 });
 
 export default Router;
