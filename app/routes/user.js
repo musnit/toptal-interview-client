@@ -8,7 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(params){
     return this.store.find('user', params.user_id );
   },
-  beforeModel: function(transition) {
+  beforeModel: function() {
     if (this.get('session.secure.role') !== 'admin') {
       this.transitionTo('trips');
     }
