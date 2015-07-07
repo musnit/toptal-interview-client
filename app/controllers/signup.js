@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
         email: this.get('email'),
         password: this.get('password'),
       };
-      Em.$.post(this.get('host') + this.get('serverNamespace') + '/users', {user: user}).then(function(){
+      Ember.$.post(this.get('host') + this.get('serverNamespace') + '/users', {user: user}).then(function(){
         var data = {
           identification: controller.get('email'),
           password: controller.get('password')
