@@ -39,6 +39,7 @@ td {
 .page-content {
   padding-left: 50px;
   padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 .comment-button {
@@ -67,7 +68,7 @@ td {
   margin-right: 20px;
 }
 
-.trip-list > a > li {
+.trip-list li {
   padding-left: 1em;
   border-radius: 5px;
   border: solid 3px black;
@@ -81,12 +82,15 @@ td {
   list-style: none;
 }
 
-.trip-list > a {
+.trip-list a {
   text-decoration: none;
 }
 
 .trip {
   max-width: 900px;
+}
+
+.trip row {
   padding-bottom: 10px;
 }
 
