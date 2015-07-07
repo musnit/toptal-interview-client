@@ -1,15 +1,18 @@
 import Ember from 'ember';
+import ENV from 'toptal-trip-planner-client/config/environment';
 
 export default Ember.Controller.extend({
+  host: ENV.serverHost,
+  serverNamespace: ENV.serverNamespace,
   actions: {
     signup: function(){
       var controller =  this;
 
-      var user = this.get('store').createRecord('user', {
+      var user = {
         email: this.get('email'),
         password: this.get('password'),
-      });
-      user.save().then(function(){
+      };
+      Em.$.post(this.get('host') + this.get('serverNamespace') + '/users', {user: user}).then(function(){
         var data = {
           identification: controller.get('email'),
           password: controller.get('password')

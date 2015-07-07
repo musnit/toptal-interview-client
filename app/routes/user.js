@@ -3,8 +3,6 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 import ENV from 'toptal-trip-planner-client/config/environment';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  host: ENV.serverHost,
-  namespace: ENV.serverNamespace,
   model: function(params){
     return this.store.find('user', params.user_id );
   },
