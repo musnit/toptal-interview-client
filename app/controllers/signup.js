@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
         };
         controller.get('session').authenticate('simple-auth-authenticator:devise', data);
       }, function(response){
-        controller.set('errorMessage', response.message);
+        controller.set('errorMessage', response.statusText);
       });
     }
   }

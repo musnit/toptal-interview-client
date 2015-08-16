@@ -40,7 +40,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV['simple-auth-devise'].serverTokenEndpoint = 'http://localhost:3000/users/sign_in';
+    ENV['simple-auth-devise'].serverTokenEndpoint = 'http://toptaltripplanner.herokuapp.com/users/sign_in';
     ENV.serverHost= 'http://localhost:3000';
   }
 
